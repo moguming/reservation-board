@@ -29,24 +29,24 @@ export default function TodayPage() {
 
   const rowClass =
     reservations.length >= 12
-      ? "px-6 py-3 text-2xl"
+      ? "px-2 py-2 text-sm sm:px-6 sm:py-3 sm:text-2xl"
       : reservations.length >= 8
-      ? "px-6 py-4 text-3xl"
-      : "px-8 py-7 text-4xl"
+      ? "px-2 py-2 text-sm sm:px-6 sm:py-4 sm:text-3xl"
+      : "px-2 py-2 text-sm sm:px-8 sm:py-7 sm:text-4xl"
 
   const headerClass =
     reservations.length >= 12
-      ? "px-6 py-3 text-2xl"
+      ? "px-2 py-2 text-sm sm:px-6 sm:py-3 sm:text-2xl"
       : reservations.length >= 8
-      ? "px-6 py-4 text-3xl"
-      : "px-8 py-6 text-4xl"
+      ? "px-2 py-2 text-sm sm:px-6 sm:py-4 sm:text-3xl"
+      : "px-2 py-2 text-sm sm:px-8 sm:py-6 sm:text-4xl"
 
   const titleClass =
     reservations.length >= 12
-      ? "text-4xl"
+      ? "text-xl sm:text-4xl"
       : reservations.length >= 8
-      ? "text-5xl"
-      : "text-6xl"
+      ? "text-2xl sm:text-5xl"
+      : "text-3xl sm:text-6xl"
 
   const getToday = () => {
     const now = new Date()
@@ -134,7 +134,7 @@ export default function TodayPage() {
       }}
     >
       <div className="flex h-screen flex-col p-6">
-        <div className="mb-4 flex items-center justify-between">
+        <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">          
           <h1 className={`${titleClass} font-bold`}>
             {todayText}
           </h1>
@@ -142,21 +142,19 @@ export default function TodayPage() {
           <div className="flex flex-col gap-3">
             <Link
               href="/reservation/new"
-              className="rounded-2xl border border-black bg-white/30 px-3 py-3 text-center text-15px font-bold text-black"
-            >
+              className="rounded-2xl border border-black bg-white/30 px-2 py-2 text-xs sm:px-3 sm:py-3 sm:text-base font-bold text-black"            >
               예약 추가
             </Link>
 
             <Link
               href="/reservation/list"
-              className="rounded-2xl border border-black bg-white/30 px-3 py-3 text-center text-15px font-bold text-black"
-            >
+              className="rounded-2xl border border-black bg-white/30 px-2 py-2 text-center text-xs font-bold text-black sm:px-3 sm:py-3 sm:text-base"            >
               목록 보기
             </Link>
           </div>
         </div>
 
-        <div className="flex-1 overflow-hidden rounded-3xl border border-white/30 bg-white/15 backdrop-blur-sm">
+        <div className="flex-1 overflow-auto rounded-3xl border border-white/30 bg-white/15 backdrop-blur-sm">
           <div className={`grid grid-cols-4 bg-stone-100 font-bold ${headerClass}`}>
             <div>시간</div>
             <div>인원</div>
